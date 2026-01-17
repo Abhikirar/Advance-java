@@ -2,13 +2,24 @@ package com.rays.jdbc.PrepareStatment;
 
 import java.sql.Connection;
 
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import com.mysql.cj.xdevapi.PreparableStatement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class UserModal {
+	
+	ResourceBundle rb = ResourceBundle.getBundle("com.rays.bundle.App");
+	
+	String driver = rb.getString( "Driver");
+	String url = rb.getString("url");
+	String username = rb.getString("username");
+	String password = rb.getString( "password");
+	
+	private static final String Driver = null;
 	public void add(UserBean bean) throws Exception {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -154,6 +165,48 @@ public class UserModal {
 		conn.close();
 		pstmt.close();
 		return bean;
+	}
+	//Search method		 
+	public List search(UserBean bean) throws Exception {
+
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
+
+		StringBuffer sql = new StringBuffer("select * from st_user where 1=1");
+
+		if (bean != null) {
+			if (bean.getFirstName() != null && bean.getFirstName().length() > 0) {
+				sql.append(" and firstName like '" + bean.getFirstName() + "%'");
+			}
+			if (bean.getLastName() != null && bean.getLastName().length() > 0) {
+				sql.append(" and lastName like '" + bean.getLastName() + "%'");
+			}
+		}
+
+		System.out.println("sql Query " + sql.toString());
+		PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+
+		ResultSet rs = pstmt.executeQuery();
+
+		List list = new ArrayList();
+
+		while (rs.next()) {
+			bean = new UserBean();
+			bean.setId(rs.getInt(1));
+			bean.setFirstName(rs.getString(2));
+			bean.setLastName(rs.getString(3));
+			bean.setLogin(rs.getString(4));
+			bean.setPassword(rs.getString(5));
+			bean.setDob(rs.getDate(6));
+			list.add(bean);
+		}
+
+		System.out.println("Query OK, The rows affected");
+
+		conn.close();
+		pstmt.close();
+		return list;
 
 	}
 }

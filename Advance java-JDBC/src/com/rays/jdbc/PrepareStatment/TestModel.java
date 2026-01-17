@@ -4,9 +4,12 @@ import java.text.SimpleDateFormat;
 
 public class TestModel {
 	public static void main(String[] args) throws Exception {
-		 testadd();
+		// testadd();
 		// testdelete();
-		//testupdate();
+		// testupdate();
+		//findByLogin();
+		 // pk();
+		authencation();
 
 	}
 
@@ -17,7 +20,7 @@ public class TestModel {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 		bean.setId(7);
-		bean.setFristName("Ranu");
+		bean.setFirstName("Ranu");
 		bean.setLastName("Vyas");
 		bean.setLogin("vyas@gmail.com");
 		bean.setPassword("vyas@1234");
@@ -36,17 +39,64 @@ public class TestModel {
 		modal.Delete(bean);
 	}
 
+	// update query
 	private static void testupdate() throws Exception {
 		UserModal modal = new UserModal();
 		UserBean bean = new UserBean();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 		bean.setId(6);
-		bean.setFristName("ram");
+		bean.setFirstName("ram");
 		bean.setLastName("yadav");
 		bean.setLogin("yadav@gmail.com");
 		bean.setPassword("yadav@1234");
 		bean.setDob(sdf.parse("2003-02-21"));
 		modal.update(bean);
 	}
+	
+	// query testFindBylogin
+	
+
+	private static void findByLogin() throws Exception {
+		UserModal model = new UserModal();
+		UserBean bean = new UserBean();
+
+		bean = model.findByLogin("Lucky@gmail.com");
+
+		System.out.println(bean.getId());
+		System.out.println(bean.getFirstName());
+		System.out.println(bean.getLastName());
+		System.out.println(bean.getLogin());
+		System.out.println(bean.getPassword());
+		System.out.println(bean.getDob());
+
+	}
+	private static void pk() throws Exception {
+		UserModal model = new UserModal();
+		UserBean bean = new UserBean();
+
+		bean = model.pk(1);
+
+		System.out.println(bean.getId());
+		System.out.println(bean.getFirstName());
+		System.out.println(bean.getLastName());
+		System.out.println(bean.getLogin());
+		System.out.println(bean.getPassword());
+		System.out.println(bean.getDob());
+
+}
+	private static void authencation() throws Exception {
+		UserModal model = new UserModal();
+		UserBean bean = new UserBean();
+
+		bean = model.authencation( "vyas@gmail.com", "vyas@1234");
+
+		System.out.println(bean.getId());
+		System.out.println(bean.getFirstName());
+		System.out.println(bean.getLastName());
+		System.out.println(bean.getLogin());
+		System.out.println(bean.getPassword());
+		System.out.println(bean.getDob());
+
+}
 }

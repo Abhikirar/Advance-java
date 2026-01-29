@@ -7,6 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Hello World</h1>
+	<%@include file="Header.jsp"%>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div align="center">
+		<h1>Welcome to ORS</h1>
+	</div>
+	<div>
+		<%@include file="Footer.jsp"%>
+	</div>
+
+
 </body>
 </html>

@@ -7,6 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Hello World</h1>
+	<div align="center">
+
+
+		<%
+		for (int i = 1; i <= 10; i++) {
+		%>
+		<h1 style="color: blue;" align="center"><%=i%>
+			Hello World
+		</h1>
+		<%
+		}
+		%>
+	</div>
+
+
 </body>
 </html>

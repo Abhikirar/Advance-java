@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<div align="center">
-		<form action="UserRegistrationCtl" method="post">
-			<h1>User Registration form</h1>
+		<form action="HelloServlet" method="post">
+			<h1>Student form</h1>
 			<table>
 				<tr>
 					<th>First Name</th>
@@ -40,15 +39,15 @@
 				</tr>
 
 				<th></th>
-				<td><input type="Submit" name="operation" value="save">
+				<td><input type="Submit" name="operation" value="save"> <input type="Submit" name="operation" value="sigin"></td>
 				</tr>
-
-
+				 
+				
 
 			</table>
 
 		</form>
 	</div>
-	
+
 </body>
 </html>

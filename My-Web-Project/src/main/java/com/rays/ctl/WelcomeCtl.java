@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/WelcomeCtl")
+@WebServlet("/WelcomeCtl")  //wild card maping
 public class WelcomeCtl extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.sendRedirect("WelCome.jsp");
+		resp.sendRedirect("WelCome.jsp");  //ek page se dusre page par bhejti hai
 	}
 
 }

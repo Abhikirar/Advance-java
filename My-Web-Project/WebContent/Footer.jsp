@@ -10,12 +10,12 @@
 	bottom: 0;
 	text-align: center;
 }
-  </style>
+</style>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-<div id="footer">
+	<div id="footer">
 		<CENTER>
 			<hr>
 			<H3>All rights reserved by Rays Technologies, SunilOS Infotech

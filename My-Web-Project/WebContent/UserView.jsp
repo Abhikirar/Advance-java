@@ -9,8 +9,8 @@
 <body>
 	<%@ include file="Header.jsp"%>
 	<div align="center">
-		<form action="HelloServlet" method="post">
-			<h1>Student form</h1>
+		<form action="UserCtl" method="post">
+			<h1>Add User</h1>
 			<table>
 				<tr>
 					<th>First Name</th>
@@ -40,8 +40,7 @@
 				</tr>
 
 				<th></th>
-				<td><input type="Submit" name="operation" value="save">
-					<input type="Submit" name="operation" value="sigin"></td>
+				<td><input type="Submit" name="operation" value="Save"></td>
 				</tr>
 
 
@@ -51,6 +50,7 @@
 		</form>
 	</div>
 	<%@ include file="Footer.jsp"%>
+
 
 </body>
 </html>

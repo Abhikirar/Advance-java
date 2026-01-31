@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Insert title here</title> <!-- // ek file ko dusri file include karta
+hai -->
 </head>
 <body>
 	<%
@@ -15,15 +16,19 @@
 	if (userbean != null) {
 	%>
 	<h2><%="Hii," + userbean.getFirstName()%></h2>
-	<a href="LoginCtl?operation=logout">logout</a>|
-	<a href="#">Add User</a> |
-	<a href="#">User List</a>
+	<a href="LoginCtl?operation=logout">Logout</a>|
+	<a href="UserCtl">Add User</a> |
+	<a href="UserListCtl">User List</a>
+		 
+	
 	<%
 	} else {
 	%>
 	<h2>Hii, Guest</h2>
-	<a href="LoginCtl">login </a>|
-	<a href="WelcomeCtl">Welcome</a>
+	<a href="LoginCtl">Login </a>|
+	<a href="WelcomeCtl">Welcome</a>|
+	    <a href="UserRegistrationCtl">User Registration</a>
+	
 	<%
 	}
 	%>
